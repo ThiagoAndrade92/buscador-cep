@@ -31,7 +31,8 @@ btnCep.addEventListener('click', async () => {
          li.innerHTML = `
                <b>Rua:</b> ${endereco.logradouro} <br>
                <b>Bairro:</b> ${endereco.bairro} <br>
-               <b>Cidade:</b> ${endereco.localidade} - ${endereco.uf}
+               <b>Cidade:</b> ${endereco.localidade} - ${endereco.uf}<br>
+               <b>CEP:</b> ${endereco.cep}
          `;
          ul.appendChild(li);
       });
