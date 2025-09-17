@@ -24,6 +24,10 @@ body, html {
    margin: 0 auto;
 }
 
+.label {
+   margin-top: 10px;
+}
+
 .label label {
    color: #505050;
 }
@@ -62,4 +66,8 @@ button:hover {
 
 .resultados {
    margin-top: 50px;
+}
+
+li {
+   list-style: none;
 }

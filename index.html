@@ -10,19 +10,32 @@
    <div class="box">
       <div class="buscador">
          <div class="label">
-            <label for="cep">CEP:</label>
+            <label for="uf">UF:</label>
          </div><!-- label -->
          <div class="input">
-            <input type="text" id="cep" placeholder="Digite o nome da rua">
+            <input type="text" id="uf" placeholder="Digite o nome da rua">
+         </div><!-- input -->
+         <div class="label">
+            <label for="cidade">Cidade:</label>
+         </div><!-- label -->
+         <div class="input">
+            <input type="text" id="cidade" placeholder="Digite o nome da rua">
+         </div><!-- input -->
+         <div class="label">
+            <label for="logradouro">Rua:</label>
+         </div><!-- label -->
+         <div class="input">
+            <input type="text" id="logradouro" placeholder="Digite o nome da rua">
          </div><!-- input -->
          <div class="btn">
-            <button>Buscar</button>
+            <button>Buscar CEP</button>
          </div><!-- btn -->
       </div><!-- buscador -->
 
       <div class="resultados">
-         <p>Rua dos bobos, Terra do nunca - SP | CEP: 12345-123</p>
       </div>
    </div><!-- box -->
+
+   <script src="js/cep.js"></script>
 </body>
 </html>
