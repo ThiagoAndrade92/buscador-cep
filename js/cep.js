@@ -7,6 +7,8 @@ const inputLogradouro = document.getElementById('logradouro');
 
 resultados.style.visibility = 'hidden';
 
+inputUf.focus();
+
 btnCep.addEventListener('click', async () => {
    const uf = inputUf.value.trim();
    const cidade = inputCidade.value.trim();
@@ -24,7 +26,7 @@ btnCep.addEventListener('click', async () => {
          resultados.textContent = '';
          btnCep.disabled = false;
       }, 3000);
-      
+
       return;
    }
 
@@ -33,10 +35,24 @@ btnCep.addEventListener('click', async () => {
    try {
       const res = await fetch(`https://viacep.com.br/ws/${uf}/${cidade}/${logradouro}/json/`);
 
+      if (!res.ok) {
+         throw new Error(`Erro HTTP ${res.status}`);
+      }
+
       const data = await res.json();
 
+      if (!data.length) {
+         resultados.style.visibility = 'visible';
+         resultados.innerHTML = `<p class="erro">Nenhum endereço encontrado</p>`;
+         setTimeout(() => {
+            resultados.style.visibility = 'hidden';
+            resultados.textContent = '';
+            btnCep.disabled = false;
+         }, 3000);
+         return;
+      }
       resultados.innerHTML = '';
-      
+
 
       const ul = document.createElement('ul');
 
@@ -60,7 +76,10 @@ btnCep.addEventListener('click', async () => {
       inputCidade.value = '';
       inputLogradouro.value = '';
       inputUf.focus();
+
+      btnCep.disabled = false;
    } catch (error) {
+      resultados.style.visibility = 'visible';
       resultados.innerHTML = '<h1 class="erro">Erro na consulta</h1>'
 
       setTimeout(() => {
@@ -68,8 +87,13 @@ btnCep.addEventListener('click', async () => {
          resultados.textContent = '';
          btnCep.disabled = false;
       }, 3000);
-   } finally {
-      btnCep.disabled = false;
-   };
+
+      inputUf.value = '';
+      inputCidade.value = '';
+      inputLogradouro.value = '';
+      inputUf.focus();
+   }// finally {
+      //btnCep.disabled = false;
+   //};
 
 });
