@@ -1,3 +1,5 @@
+/* ====== Geral ======= */
+
 * {
    margin: 0;
    padding: 0;
@@ -7,21 +9,36 @@
 
 body, html {
    height: 100%;
-   background: linear-gradient(120deg, skyblue, blue);
 }
 
+.erro {
+   color: red;
+   text-align: center;
+}
+
+.campo-vazio {
+   text-align: center;
+}
+/* ====== form ======= */
 .box {
    padding: 50px 10px 10px 10px;
 }
 
 .resultados,
 .buscador {
-   background-color: skyblue;
-   padding: 10px;
-   border-radius: 4px;
-   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   border: 2px solid #000;
+   border-radius: 2px;
    max-width: 500px;
    margin: 0 auto;
+   padding: 10px;
+}
+
+.border {
+   max-width: 500px;
+   margin: 0 auto;
+   border: 3px solid orange;
+   border-radius: 4px;
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .label {
@@ -64,10 +81,20 @@ button:hover {
    background-color: rgb(241, 188, 88);
 }
 
-.resultados {
-   margin-top: 50px;
+.btn button:disabled {
+   background-color: gray;
+   cursor: not-allowed;
 }
 
-li {
+/* ====== Resultados ======= */
+
+.resultados {
+   margin-top: 50px;
+   padding: 10px;
+   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.resultados li {
    list-style: none;
+   margin-bottom: 8px;
 }
